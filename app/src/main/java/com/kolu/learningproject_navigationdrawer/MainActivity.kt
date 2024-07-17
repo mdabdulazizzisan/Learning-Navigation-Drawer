@@ -40,21 +40,33 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.mCart -> {
                     Toast.makeText(this, "Cart clicked", Toast.LENGTH_SHORT).show()
+                    bndActivityMain.main.close()
                     true
                 }
                 R.id.mHistory -> {
                     Toast.makeText(this, "History clicked", Toast.LENGTH_SHORT).show()
+                    bndActivityMain.main.close()
                     true
                 }
                 R.id.mSettings -> {
                     Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
+                    bndActivityMain.main.close()
                     true
                 }
                 else -> {
                     Toast.makeText(this, "Other item clicked", Toast.LENGTH_LONG).show()
+                    bndActivityMain.main.close()
                     true
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        if (bndActivityMain.main.isOpen) {
+            bndActivityMain.main.close()
+            return
+        }
+        super.onBackPressed()
     }
 }
